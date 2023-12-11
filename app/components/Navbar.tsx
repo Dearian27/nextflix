@@ -27,10 +27,10 @@ const Navbar: React.FC<NavbarProps> = ({username}) => {
       {username ? (
         <div className='px-4 md:px-16 py-4 gap-8 flex flex-row items-center justify-between transition duration-500'>
           <Image
-            src='/images/logo.svg'
+            src='/images/nextflix.png'
             onClick={() => router.push('/home')}
-            height={1}
-            width={1}
+            height={313}
+            width={1153}
             className='cursor-pointer h-22 w-56'
             alt='nextflix logo'
           />
@@ -65,9 +65,9 @@ const Navbar: React.FC<NavbarProps> = ({username}) => {
       ) : (
         <div className='px-4 md:px-16 py-6 flex flex-row items-center justify-between transition duration-500'>
            <Image
-            src='/images/logo.svg'
-            height={1}
-            width={1}
+            src='/images/nextflix.png'
+            height={313}
+            width={1153}
             className='cursor-pointer h-22 w-56'
             alt='nextflix logo'
           />

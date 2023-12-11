@@ -1,0 +1,42 @@
+.form-element {
+  position: relative;
+  margin: 0 auto;
+  padding-bottom: 16px;
+}
+.input {
+  box-sizing: border-box;
+  width: 100%;
+  font-family: inherit;
+  padding: 16px 20px 0 20px;
+  height: 50px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  outline: none;
+  background-color: #444;
+  color: #ffffff;
+}
+.input::placeholder {
+  visibility: visible;
+}
+.floating-label {
+  box-sizing: border-box;
+  position: absolute;
+  width: 100%;
+  top: 25%;
+  left: 20px;
+  font-size: 18px;
+  cursor: text;
+  color: #8c8c8c;
+  transition: font 0.1s ease, top 0.1s ease, transform 0.1s ease;
+  transition: font 0.1s ease, top 0.1s ease, transform 0.1s ease,
+    -webkit-transform 0.1s ease, -moz-transform 0.1s ease,
+    -o-transform 0.1s ease;
+}
+
+.input:focus ~ .floating-label,
+.input:valid ~ .floating-label 
+{
+  font-size: 11px;
+  top: 7px;
+}
