@@ -33,7 +33,7 @@ const AuthPage = () => {
 
   return (
     <BgProvider removeBgOnMobile>
-      <nav>
+      <nav className='py-8 px-14'>
         <Image
           src='/images/nextflix.png'
           onClick={() => router.push('/')}
@@ -44,8 +44,10 @@ const AuthPage = () => {
         />
       </nav>
       <form className='flex justify-center' onSubmit={variant === 'login' ? login : register}>
-        <div className="bg-black/70 p-16 self-center mt-2 lg:w-2/5 lg:max-w-md rounded-md w-full">
-          <h2>{variant === 'login' ? 'Вхід' : 'Реєстрація'}</h2>
+        <div className="bg-black/70 p-20 self-center mt-2 lg:w-4/5 lg:max-w-xl rounded-md w-full box-border">
+          <h2 className='text-white text-4xl font-semibold mb-8'>
+            {variant === 'login' ? 'Вхід' : 'Реєстрація'}
+          </h2>
           <div className="flex flex-col gap-4">
             {variant === 'register' && (
               <div className="form-element">
@@ -64,7 +66,7 @@ const AuthPage = () => {
           </div>
           <button
             type='submit'
-            className='bg-theme-1 py-3 text-white rounded-md w-full mt-10 hover:bg-theme-1/80 transition duration-500 font-bold'
+            className='bg-theme-1 py-4 text-white rounded-md w-full mt-10 hover:bg-theme-1/80 transition duration-500 text-lg font-semibold'
           >
             {variant === 'login' ? 'Увійти' : 'Зареєструватись'}
           </button>
