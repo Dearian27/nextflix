@@ -1,9 +1,23 @@
-import Image from 'next/image'
+import BgProvider from "@/app/components/BgProvider";
+import Navbar from "./components/Navbar";
 
-export default function Home() {
+
+
+const LandingPage = () => {
+  
   return (
-    <main className="flex min-h-screen bg-cyan-800 items-center justify-center">
-      <h1>Hello world!</h1>
-    </main>
+    <BgProvider>
+      <Navbar />
+      <main className="flex flex-col justify-cent pt-80 px-5 text-center gap-10">
+        <h1 className="font-extrabold text-white text-5xl">
+          Фільми, серіали й інший контент без обмежень
+        </h1>
+        <h4 className="font-sm text-white text-3xl">
+          Дивіться будь-де. Скасувати підписку можна будь-коли
+        </h4>
+      </main>
+    </BgProvider>
   )
 }
+
+export default LandingPage;
