@@ -33,7 +33,7 @@ const AuthPage = () => {
 
   return (
     <BgProvider removeBgOnMobile>
-      <nav className='py-8 px-14'>
+      <nav className='py-8 px-14 md:px-16'>
         <Image
           src='/images/nextflix.png'
           onClick={() => router.push('/')}
