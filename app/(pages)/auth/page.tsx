@@ -1,5 +1,6 @@
 'use client'
 
+import AnimBackground from '@/app/components/AnimBackground';
 import BgProvider from '@/app/components/BgProvider';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
@@ -33,6 +34,7 @@ const AuthPage = () => {
 
   return (
     <BgProvider removeBgOnMobile>
+      <AnimBackground />
       <nav className='py-8 px-14 md:px-16'>
         <Image
           src='/images/nextflix.png'

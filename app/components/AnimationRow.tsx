@@ -22,9 +22,9 @@ const AnimationRow: React.FC<AnimationRowProps> = ({shuffle=false, side='left', 
   let array = iterations.map((_, i) => {
     return images[(i + plus) % images.length]
   })
-  if(shuffle) {
-    array = shuffleArray(array);
-  }
+  // if(shuffle) {
+  //   array = shuffleArray(array);
+  // }
 
   return (
     <div className='slider-row'>

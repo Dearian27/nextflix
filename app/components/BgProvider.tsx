@@ -9,7 +9,6 @@ type BgProviderProps = {
 const BgProvider: React.FC<BgProviderProps> = ({removeBgOnMobile, children}) => {
   return (
     <>
-      <AnimBackground />
       <section className={`h-full w-full bg-no-repeat bg-cover background`}>
         <div className={`bg-black w-full h-full 
           ${removeBgOnMobile ? 'lg:bg-opacity-60' : 'bg-opacity-75'}
