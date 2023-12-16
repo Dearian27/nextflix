@@ -25,7 +25,7 @@ export const images = [
 
 const AnimBackground = () => {
   return (
-    <section className="wrapper">
+    <section className={`wrapper`}>
       <section className='container'>      
         <AnimationRow side={'left'}  id={0} shuffle plus={0 * 6} length={6} />
         <AnimationRow side={'right'} id={1} shuffle plus={1 * 6} length={6} />

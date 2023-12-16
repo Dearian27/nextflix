@@ -68,7 +68,7 @@ const Navbar: React.FC<NavbarProps> = ({username}) => {
             src='/images/nextflix.png'
             height={313}
             width={1153}
-            className='cursor-pointer h-22 w-56 md:w-44 md:h-18 object-contain'
+            className='cursor-pointer object-contain h-22 w-56 md:w-48 md:h-18'
             alt='nextflix logo'
           />
           <button

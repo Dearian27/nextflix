@@ -3,7 +3,7 @@ import AnimBackground from './AnimBackground'
 
 type BgProviderProps = {
   children: React.ReactNode,
-  removeBgOnMobile?: boolean
+  removeBgOnMobile?: boolean,
 }
 
 const BgProvider: React.FC<BgProviderProps> = ({removeBgOnMobile, children}) => {

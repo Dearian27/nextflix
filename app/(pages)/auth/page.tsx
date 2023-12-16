@@ -5,6 +5,7 @@ import BgProvider from '@/app/components/BgProvider';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import React, { FormEvent, useState } from 'react'
+import { FaGoogle, FaGithub } from 'react-icons/fa';
 
 type FormVariant = 'login' | 'register';
 
@@ -32,21 +33,29 @@ const AuthPage = () => {
     
   }
 
+  const githubAuth = (e: FormEvent<HTMLFormElement>) => {
+    
+  }
+
+  const googleAuth = (e: FormEvent<HTMLFormElement>) => {
+    
+  }
+
   return (
     <BgProvider removeBgOnMobile>
       <AnimBackground />
-      <nav className='py-8 px-14 md:px-16'>
+      <nav className='py-6 px-14 md:px-16'>
         <Image
           src='/images/nextflix.png'
           onClick={() => router.push('/')}
           height={313}
           width={1153}
-          className='cursor-pointer h-22 w-56'
+          className='cursor-pointer object-contain h-22 w-56 md:w-48 md:h-18'
           alt='nextflix logo'
         />
       </nav>
       <form className='flex justify-center' onSubmit={variant === 'login' ? login : register}>
-        <div className="bg-black/70 p-20 self-center mt-2 lg:w-4/5 lg:max-w-xl rounded-md w-full box-border">
+        <div className="bg-black/70 p-16 self-center mt-2 lg:w-4/5 lg:max-w-xl rounded-md w-full box-border">
           <h2 className='text-white text-4xl font-semibold mb-8'>
             {variant === 'login' ? 'Вхід' : 'Реєстрація'}
           </h2>
@@ -72,6 +81,31 @@ const AuthPage = () => {
           >
             {variant === 'login' ? 'Увійти' : 'Зареєструватись'}
           </button>
+
+          <div className='flex flex-row items-center gap-4 mt-8 justify-center'>
+            <button
+              className='bg-white p-1 rounded-full hover:opacity-80 transition duration-500'
+              onClick={googleAuth}
+              >
+              <FaGoogle size={30} />
+            </button>
+            <button
+              className='bg-white p-1 rounded-full hover:opacity-80 transition duration-400'
+              onClick={githubAuth}
+            >
+              <FaGithub size={30} />
+            </button>
+          </div>
+
+          <p className='text-neutral-500 mt-10'>
+            {variant === 'login' ? "Уперше на Nextflix?" : "Уже маєте акаунт?"}
+            <span 
+              className='text-white hover:underline transition ml-1 cursor-pointer'
+              onClick={() => handleFormChange()}
+            >
+              {variant === 'login' ? "Зареєстурватися" : "Увійти"}
+            </span>
+          </p>
         </div>
       </form>
     </BgProvider>
