@@ -1,11 +1,14 @@
 'use client'
+import { useRouter } from 'next/navigation';
+import React, { FormEvent, useState } from 'react'
+import { signIn } from 'next-auth/react';
 
 import AnimBackground from '@/app/components/AnimBackground';
 import BgProvider from '@/app/components/BgProvider';
+
 import Image from 'next/image';
-import { useRouter } from 'next/navigation';
-import React, { FormEvent, useState } from 'react'
 import { FaGoogle, FaGithub } from 'react-icons/fa';
+import axios from 'axios';
 
 type FormVariant = 'login' | 'register';
 
@@ -23,14 +26,38 @@ const AuthPage = () => {
     ))
   }
 
-  const login = (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-  
+  const login = async(e?: FormEvent<HTMLFormElement>) => {
+    e?.preventDefault();
+    try {
+      await signIn(
+        "credentials",
+        {
+          email,
+          password,
+          redirect: true,
+          callbackUrl: "/home"
+        }
+      )
+    } catch(error) {
+      console.log("Login error", error);
+    }
   }
   
-  const register = (e: FormEvent<HTMLFormElement>) => {
+  const register = async(e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    
+    try {
+      await axios.post(
+        "/api/register",
+        {
+          email,
+          name,
+          password,
+        }
+      ).catch(error => {console.log(error)})
+      login();
+    } catch(error) {
+      console.log("Register error", error);
+    }
   }
 
   const githubAuth = (e: FormEvent<HTMLFormElement>) => {
