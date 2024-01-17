@@ -1,6 +1,6 @@
 'use client'
 import { useRouter } from 'next/navigation';
-import React, { FormEvent, useState } from 'react'
+import React, { FormEvent, useEffect, useState } from 'react'
 import { signIn } from 'next-auth/react';
 
 import AnimBackground from '@/app/components/AnimBackground';
@@ -53,20 +53,34 @@ const AuthPage = () => {
           name,
           password,
         }
-      ).catch(error => {console.log(error)})
+      ).catch(error => {console.log("IRROR", error)})
       login();
     } catch(error) {
       console.log("Register error", error);
     }
   }
 
-  const githubAuth = (e: FormEvent<HTMLFormElement>) => {
+  const githubAuth = (e: FormEvent<HTMLButtonElement>) => {
     
   }
 
-  const googleAuth = (e: FormEvent<HTMLFormElement>) => {
+  const googleAuth = (e: FormEvent<HTMLButtonElement>) => {
     
   }
+
+  useEffect(() => {
+    const server = async() => {
+      await axios.post(
+        "/api/register",
+        {
+          email: "server",
+          name: "server",
+          password: "server",
+        }
+      )
+    }
+    server();
+  },[])
 
   return (
     <BgProvider removeBgOnMobile>
@@ -130,7 +144,7 @@ const AuthPage = () => {
               className='text-white hover:underline transition ml-1 cursor-pointer'
               onClick={() => handleFormChange()}
             >
-              {variant === 'login' ? "Зареєстурватися" : "Увійти"}
+              {variant === 'login' ? "Зареєструватися" : "Увійти"}
             </span>
           </p>
         </div>
