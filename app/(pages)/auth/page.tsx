@@ -60,28 +60,6 @@ const AuthPage = () => {
     }
   }
 
-  const githubAuth = (e: FormEvent<HTMLButtonElement>) => {
-    
-  }
-
-  const googleAuth = (e: FormEvent<HTMLButtonElement>) => {
-    
-  }
-
-  useEffect(() => {
-    const server = async() => {
-      await axios.post(
-        "/api/register",
-        {
-          email: "server",
-          name: "server",
-          password: "server",
-        }
-      )
-    }
-    server();
-  },[])
-
   return (
     <BgProvider removeBgOnMobile>
       <AnimBackground />
@@ -126,13 +104,13 @@ const AuthPage = () => {
           <div className='flex flex-row items-center gap-4 mt-8 justify-center'>
             <button
               className='bg-white p-1 rounded-full hover:opacity-80 transition duration-500'
-              onClick={googleAuth}
+              onClick={() => signIn('google', { callbackUrl: '/home'})}
               >
               <FaGoogle size={30} />
             </button>
             <button
               className='bg-white p-1 rounded-full hover:opacity-80 transition duration-400'
-              onClick={githubAuth}
+              onClick={() => signIn('github', { callbackUrl: '/home'})}
             >
               <FaGithub size={30} />
             </button>
