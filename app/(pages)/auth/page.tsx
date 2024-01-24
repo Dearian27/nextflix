@@ -104,7 +104,7 @@ const AuthPage = () => {
           <div className='flex flex-row items-center gap-4 mt-8 justify-center'>
             <button
               className='bg-white p-1 rounded-full hover:opacity-80 transition duration-500'
-              onClick={() => signIn('google', { callbackUrl: '/home'})}
+              onClick={() => signIn("google", { callbackUrl: "/home"})}
               >
               <FaGoogle size={30} />
             </button>
