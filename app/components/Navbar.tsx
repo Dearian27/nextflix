@@ -3,6 +3,7 @@ import Image from 'next/image';
 import { usePathname, useRouter } from 'next/navigation';
 import React from 'react';
 import NavItem from './NavItem';
+import { signOut } from 'next-auth/react';
 
 type NavbarProps = {
   username?: string
@@ -56,7 +57,7 @@ const Navbar: React.FC<NavbarProps> = ({username}) => {
             <button
               className='flex flex-row items-center bg-theme-1 pb-2 py-1.5 px-5 text-white text-xl
               hover:bg-white hover:text-theme-1 cursor-pointer rounded-md transition'
-              onClick={() => router.push('/auth')}
+              onClick={() => signOut({callbackUrl: '/'})}
             >
               Вийти
             </button>
