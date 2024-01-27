@@ -14,8 +14,12 @@ const Billboard = async() => {
       autoPlay
       muted
       loop
+      preload='auto'
       src={billboardVideoData?.videoUrl}
-      ></video>
+      controls
+      >
+         <source src={billboardVideoData?.videoUrl} type='video/mp4' />
+      </video>
       <div className='absolute top-[30%] md:top-[40%] ml-4 md:ml-16'>
         <p className='text-white text-1xl md:text-5xl h-full w-[50%] lg:text-6xl font-bold drop-shadow-xl'>
           {billboardVideoData?.title}
@@ -27,6 +31,10 @@ const Billboard = async() => {
           <PlayButton movieId={billboardVideoData?.id}/>
         </div>
       </div>
+
+      <video height={400} width={650} controls>
+          <source src="https://drive.google.com/file/d/1kkWqZKZ7sDOFIgcqgIruna1sY7Ppcm37/preview" type='video/webm'/>
+      </video>
     </div>
   )
 }
