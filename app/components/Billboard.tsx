@@ -16,7 +16,6 @@ const Billboard = async() => {
       loop
       preload='auto'
       src={billboardVideoData?.videoUrl}
-      controls
       >
          <source src={billboardVideoData?.videoUrl} type='video/mp4' />
       </video>
@@ -31,10 +30,6 @@ const Billboard = async() => {
           <PlayButton movieId={billboardVideoData?.id}/>
         </div>
       </div>
-
-      <video height={400} width={650} controls>
-          <source src="https://drive.google.com/file/d/1kkWqZKZ7sDOFIgcqgIruna1sY7Ppcm37/preview" type='video/webm'/>
-      </video>
     </div>
   )
 }
